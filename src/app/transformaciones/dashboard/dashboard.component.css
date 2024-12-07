@@ -1,0 +1,46 @@
+.flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  .h-full {
+    height: 100%;
+  }
+  
+  .flex-grow {
+    flex-grow: 1;
+  }
+  
+  .fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .bg-gray-500 {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .bg-blue-500 {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .bg-blue-500:hover {
+    background-color: #0056b3;
+  }
+  

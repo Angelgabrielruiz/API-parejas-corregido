@@ -1,0 +1,33 @@
+<div class="flex flex-col justify-between h-full">
+  <div class="flex-grow">
+    <div *ngIf="transformaciones.length === 0" class="text-center">
+      <p>No hay transformaciones disponibles para este personaje.</p>
+    </div>
+
+    <div *ngIf="transformaciones.length > 0" class="grid">
+      <app-card
+        *ngFor="let transformacion of transformaciones"
+        [transformacion]="transformacion"
+        (transformacionUpdated)="updateTransformacion($event)"
+      ></app-card>
+    </div>
+  </div>
+
+  <div class="fixed">
+    <button (click)="goHome()" class="bg-gray-500">Home</button>
+    <button
+      (click)="goBack()"
+      [disabled]="characterId === personajes[0]?.id"
+      class="bg-blue-500"
+    >
+      ← Atrás
+    </button>
+    <button
+      (click)="goForward()"
+      [disabled]="characterId === personajes[personajes.length - 1]?.id"
+      class="bg-blue-500"
+    >
+      Adelante →
+    </button>
+  </div>
+</div>

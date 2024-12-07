@@ -1,0 +1,51 @@
+<div class="card-container">
+  <div class="card-image">
+    <img
+      [src]="transformacion.image"
+      [alt]="transformacion.name"
+    />
+  </div>
+  <div class="card-content">
+    <h2>{{ transformacion.name }}</h2>
+    <p>Ki: {{ transformacion.ki }}</p>
+    <p>ID: {{ transformacion.id }}</p>
+    <button
+      (click)="openEditModal(transformacion)"
+      class="edit-button"
+    >
+      Editar
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal">
+    <h2>Editar Ki</h2>
+    <form (submit)="onSubmit($event)">
+      <div>
+        <label>Nombre</label>
+        <input [value]="transformacion.name" readonly />
+      </div>
+      <div>
+        <label for="ki">Ki</label>
+        <input
+          id="ki"
+          [(ngModel)]="editKi"
+          name="ki"
+          type="text"
+          placeholder="Ingrese el nuevo valor de Ki"
+        />
+      </div>
+      <div class="modal-buttons">
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="cancel-button"
+        >
+          Cancelar
+        </button>
+        <button type="submit" class="save-button">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
